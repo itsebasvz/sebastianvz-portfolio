@@ -23,6 +23,7 @@ export const translations = {
             description:
                 "Computer Engineering student at UNAM, focused on modern web application development, from the interface to server logic. I'm interested in creating clear, functional, and well-structured software, caring for both user experience and code quality.",
             viewProjects: "View projects",
+            aboutMe: "About me",
             contactMe: "Contact me",
         },
 
@@ -70,7 +71,7 @@ export const translations = {
         contact: {
             title: "Contact",
             subtitle:
-                "Have a project in mind or just want to say hi? Don't hesitate to contact me. I'm always open to discussing new opportunities and collaborations.",
+                "Great ideas start with a conversation. If you want to collaborate, share a proposal, or talk about development and technology, write to me. I'm always open to creating something interesting.",
             sendMessage: "Send me a message",
             name: "Name",
             namePlaceholder: "Your name",
@@ -114,6 +115,7 @@ export const translations = {
             description:
                 "Estudiante de Ingeniería en Computación en la UNAM, enfocado en el desarrollo de aplicaciones web modernas, desde la interfaz hasta la lógica del servidor. Me interesa crear software claro, funcional y bien estructurado, cuidando tanto la experiencia de usuario como la calidad del código.",
             viewProjects: "Ver proyectos",
+            aboutMe: "Sobre mí",
             contactMe: "Contáctame",
         },
 
@@ -161,7 +163,7 @@ export const translations = {
         contact: {
             title: "Contacto",
             subtitle:
-                "¿Tienes un proyecto en mente o simplemente quieres saludar? No dudes en contactarme. Siempre estoy abierto a discutir nuevas oportunidades y colaboraciones.",
+                "Las buenas ideas empiezan con una conversación. Si quieres colaborar, compartir una propuesta o hablar de desarrollo y tecnología, escríbeme. Siempre estoy abierto a crear algo interesante.",
             sendMessage: "Envíame un mensaje",
             name: "Nombre",
             namePlaceholder: "Tu nombre",

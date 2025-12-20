@@ -28,9 +28,21 @@ export function ThemeToggle() {
 
     const toggleTheme = useCallback(() => {
         const newTheme = theme === "dark" ? "light" : "dark";
-        setTheme(newTheme);
-        localStorage.setItem("theme", newTheme);
-        document.documentElement.classList.toggle("dark", newTheme === "dark");
+
+        // @ts-ignore - View Transitions API might not be in types yet
+        if (!document.startViewTransition) {
+            setTheme(newTheme);
+            localStorage.setItem("theme", newTheme);
+            document.documentElement.classList.toggle("dark", newTheme === "dark");
+            return;
+        }
+
+        // @ts-ignore
+        document.startViewTransition(() => {
+            setTheme(newTheme);
+            localStorage.setItem("theme", newTheme);
+            document.documentElement.classList.toggle("dark", newTheme === "dark");
+        });
     }, [theme]);
 
     if (!mounted) {

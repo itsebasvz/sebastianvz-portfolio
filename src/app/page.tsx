@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, Github, Linkedin } from "lucide-react";
 import { FadeIn } from "@/components/motion/fade-in";
 import { RotatingText } from "@/components/motion/rotating-text";
+import { InteractiveGrid } from "@/components/motion/interactive-grid";
 import { useLocale } from "@/components/providers/locale-provider";
 import { siteConfig } from "@/lib/data";
 
@@ -12,8 +13,9 @@ export default function HomePage() {
   const roles = t.home.roles as unknown as string[];
 
   return (
-    <section className="min-h-[calc(100vh-4rem)] flex items-center">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <section className="min-h-[calc(100vh-4rem)] flex items-center relative overflow-hidden">
+      <InteractiveGrid />
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
         <div className="max-w-3xl">
           <FadeIn>
             <p className="text-indigo-600 dark:text-indigo-400 font-medium mb-4">
@@ -52,6 +54,12 @@ export default function HomePage() {
               >
                 {t.home.viewProjects}
                 <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/about"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-slate-950"
+              >
+                {t.home.aboutMe}
               </Link>
               <Link
                 href="/contact"
