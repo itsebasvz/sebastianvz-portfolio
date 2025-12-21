@@ -105,7 +105,7 @@ export function CommandMenu() {
                                         <span>{t.nav.about}</span>
                                     </Command.Item>
                                     <Command.Item
-                                        onSelect={() => runCommand(() => router.push("/#projects"))}
+                                        onSelect={() => runCommand(() => router.push("/projects"))}
                                         className="flex cursor-pointer items-center gap-2 rounded-lg px-2 py-2 text-sm text-foreground/80 transition-colors hover:bg-foreground/10 aria-selected:bg-foreground/10 aria-selected:text-foreground"
                                     >
                                         <LayoutGrid className="h-4 w-4" />
