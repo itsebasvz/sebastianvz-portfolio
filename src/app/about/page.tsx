@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { GraduationCap, MapPin, Code } from "lucide-react";
 import { FadeIn } from "@/components/motion/fade-in";
+import { Marquee } from "@/components/motion/marquee";
 import { useLocale } from "@/components/providers/locale-provider";
 import { siteConfig, skillCategories } from "@/lib/data";
 
@@ -20,9 +21,9 @@ export default function AboutPage() {
                     <div className="w-20 h-1 bg-indigo-600 dark:bg-indigo-400 rounded-full mb-8" />
                 </FadeIn>
 
-                <div className="grid lg:grid-cols-3 gap-12">
+                <div className="mb-20">
                     {/* Bio */}
-                    <div className="lg:col-span-2 space-y-6">
+                    <div className="space-y-6">
                         {/* Profile Photo */}
                         <FadeIn delay={0.1}>
                             <div className="flex items-center gap-6 mb-2">
@@ -102,36 +103,48 @@ export default function AboutPage() {
                         </FadeIn>
                     </div>
 
-                    {/* Skills */}
-                    <div className="space-y-6">
-                        <FadeIn delay={0.2}>
-                            <div className="flex items-center gap-2 mb-4">
-                                <Code className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-                                <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
-                                    {t.about.technologies}
-                                </h2>
-                            </div>
-                        </FadeIn>
 
-                        {skillCategories.map((category, categoryIndex) => (
-                            <FadeIn key={category.name} delay={0.3 + categoryIndex * 0.1}>
-                                <div className="space-y-3">
-                                    <h3 className="text-sm font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
-                                        {category.name}
-                                    </h3>
-                                    <div className="flex flex-wrap gap-2">
-                                        {category.skills.map((skill) => (
-                                            <span
-                                                key={skill}
-                                                className="px-3 py-1.5 text-sm font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
-                                            >
-                                                {skill}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
-                            </FadeIn>
-                        ))}
+                </div>
+
+                {/* Skills - Infinite Marquee (Full Width) */}
+                <div className="space-y-8 overflow-hidden">
+                    <FadeIn delay={0.5}>
+                        <div className="flex items-center justify-center gap-2 mb-8">
+                            <Code className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+                                {t.about.technologies}
+                            </h2>
+                        </div>
+                    </FadeIn>
+
+                    <div className="relative flex flex-col gap-6 -mx-4 sm:-mx-6 lg:-mx-8">
+                        {/* First Row - Frontend (Left) */}
+                        <Marquee pauseOnHover className="[--duration:40s]">
+                            {skillCategories[0].skills.map((skill) => (
+                                <span
+                                    key={skill}
+                                    className="mx-3 px-5 py-2.5 text-base font-medium rounded-full bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 shadow-sm hover:scale-110 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 hover:border-indigo-200 dark:hover:border-indigo-800 transition-all cursor-default"
+                                >
+                                    {skill}
+                                </span>
+                            ))}
+                        </Marquee>
+
+                        {/* Second Row - Backend & Tools (Right) */}
+                        <Marquee reverse pauseOnHover className="[--duration:40s]">
+                            {[...skillCategories[1].skills, ...skillCategories[2].skills].map((skill) => (
+                                <span
+                                    key={skill}
+                                    className="mx-3 px-5 py-2.5 text-base font-medium rounded-full bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 shadow-sm hover:scale-110 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 hover:border-indigo-200 dark:hover:border-indigo-800 transition-all cursor-default"
+                                >
+                                    {skill}
+                                </span>
+                            ))}
+                        </Marquee>
+
+                        {/* Gradient Masks for Fade Effect */}
+                        <div className="pointer-events-none absolute inset-y-0 left-0 w-24 sm:w-32 bg-gradient-to-r from-white dark:from-slate-950 to-transparent z-10"></div>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 w-24 sm:w-32 bg-gradient-to-l from-white dark:from-slate-950 to-transparent z-10"></div>
                     </div>
                 </div>
             </div>

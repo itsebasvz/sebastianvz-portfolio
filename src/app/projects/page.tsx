@@ -23,13 +23,14 @@ function ProjectCard({
         <motion.article
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            whileTap={{ scale: 0.95 }}
             transition={{
                 duration: 0.5,
                 delay: index * 0.1,
                 ease: [0.21, 0.47, 0.32, 0.98],
             }}
             className={cn(
-                "group relative flex flex-col h-full p-6 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-300 dark:hover:border-indigo-800 active:border-indigo-300 dark:active:border-indigo-800 transition-colors",
+                "group relative flex flex-col h-full p-6 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 md:hover:border-indigo-300 md:dark:hover:border-indigo-800 transition-colors",
                 className
             )}
         >
@@ -42,7 +43,7 @@ function ProjectCard({
 
             {/* Content */}
             <div className="flex-1">
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2 pr-16 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 group-active:text-indigo-600 dark:group-active:text-indigo-400 transition-colors">
+                <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2 pr-16 md:group-hover:text-indigo-600 md:dark:group-hover:text-indigo-400 transition-colors">
                     {(t.projects.titles as Record<string, string>)[project.id] || project.title}
                 </h3>
                 <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">
