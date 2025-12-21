@@ -5,16 +5,19 @@ import { ExternalLink, Github } from "lucide-react";
 import { motion } from "framer-motion";
 import { FadeIn } from "@/components/motion/fade-in";
 import { useLocale } from "@/components/providers/locale-provider";
+import { cn } from "@/lib/utils";
 import { projects, type Project } from "@/lib/data";
 
 function ProjectCard({
     project,
     index,
     t,
+    className,
 }: {
     project: Project;
     index: number;
     t: ReturnType<typeof useLocale>["t"];
+    className?: string;
 }) {
     return (
         <motion.article
@@ -25,7 +28,10 @@ function ProjectCard({
                 delay: index * 0.1,
                 ease: [0.21, 0.47, 0.32, 0.98],
             }}
-            className="group relative flex flex-col h-full p-6 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-300 dark:hover:border-indigo-800 transition-colors"
+            className={cn(
+                "group relative flex flex-col h-full p-6 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-300 dark:hover:border-indigo-800 active:border-indigo-300 dark:active:border-indigo-800 transition-colors",
+                className
+            )}
         >
             {/* Featured Badge */}
             {project.featured && (
@@ -36,7 +42,7 @@ function ProjectCard({
 
             {/* Content */}
             <div className="flex-1">
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2 pr-16 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2 pr-16 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 group-active:text-indigo-600 dark:group-active:text-indigo-400 transition-colors">
                     {(t.projects.titles as Record<string, string>)[project.id] || project.title}
                 </h3>
                 <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">
@@ -103,7 +109,17 @@ export default function ProjectsPage() {
                 {/* Projects Grid */}
                 <div className="grid md:grid-cols-2 gap-6">
                     {projects.map((project, index) => (
-                        <ProjectCard key={project.id} project={project} index={index} t={t} />
+                        <ProjectCard
+                            key={project.id}
+                            project={project}
+                            index={index}
+                            t={t}
+                            className={cn(
+                                index === projects.length - 1 && projects.length % 2 !== 0
+                                    ? "md:col-span-2 md:mx-auto md:w-[calc(50%-0.75rem)]"
+                                    : ""
+                            )}
+                        />
                     ))}
                 </div>
 

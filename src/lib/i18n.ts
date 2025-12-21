@@ -85,6 +85,10 @@ export const translations = {
             emailDesc: "Contact me directly",
             githubDesc: "Check my code",
             linkedinDesc: "Let's connect",
+            successTitle: "Message sent!",
+            successMessage: "Thanks for contacting me. I'll get back to you as soon as possible.",
+            sendAnother: "Send another message",
+            errorMessage: "There was an error sending the message. Please try again.",
         },
 
         // Footer
@@ -177,6 +181,10 @@ export const translations = {
             emailDesc: "Contáctame directamente",
             githubDesc: "Revisa mi código",
             linkedinDesc: "Conectemos",
+            successTitle: "¡Mensaje enviado!",
+            successMessage: "Gracias por contactarme. Te responderé lo antes posible.",
+            sendAnother: "Enviar otro mensaje",
+            errorMessage: "Hubo un error al enviar el mensaje. Por favor intenta de nuevo.",
         },
 
         // Footer

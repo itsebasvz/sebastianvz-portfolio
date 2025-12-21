@@ -8,6 +8,7 @@ export const siteConfig = {
     faculty: "FES Aragón",
     semester: "6º semestre",
     email: "sebastianvazquez36@aragon.unam.mx",
+    formspreeId: process.env.NEXT_PUBLIC_FORMSPREE_ID || "xojalddw", // ID de Formspree (fallback para dev)
     links: {
         github: "https://github.com/itsebasvz",
         linkedin: "https://www.linkedin.com/in/jsebastianvz",
