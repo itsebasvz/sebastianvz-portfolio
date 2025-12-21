@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio - Sebastián Vázquez
 
-## Getting Started
+![Portfolio Preview](./public/home-preview.png)
 
-First, run the development server:
+> **Desarrollador Full-Stack en formación** | Ingeniería en Computación @ UNAM
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Este es mi portafolio personal, diseñado para mostrar mis proyectos, habilidades y experiencia. Construido con tecnologías modernas para asegurar rendimiento, accesibilidad y una experiencia de usuario premium.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## - Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+- **Lenguaje**: [TypeScript](https://www.typescriptlang.org/)
+- **Estilos**: [Tailwind CSS](https://tailwindcss.com/)
+- **Animaciones**: [Framer Motion](https://www.framer.com/motion/)
+- **Iconos**: [Lucide React](https://lucide.dev/)
+- **Formularios**: [Formspree](https://formspree.io/)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## - Características
 
-## Learn More
+- 🎨 **Diseño Moderno**: Interfaz limpia y minimalista con un toque premium.
+- 🌓 **Dark Mode**: Soporte completo para tema claro y oscuro con persistencia.
+- 🌐 **Internacionalización (i18n)**: Soporte bilingüe (Español / Inglés).
+- ⚡ **Animaciones Fluidas**: Transiciones de página y micro-interacciones suaves.
+- 📱 **Responsive**: Totalmente adaptado a dispositivos móviles y de escritorio.
+- 📧 **Contacto Funcional**: Formulario integrado con validación y feedback visual.
 
-To learn more about Next.js, take a look at the following resources:
+## - Instalación Local
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1.  **Clonar el repositorio**:
+    ```bash
+    git clone https://github.com/itsebasvz/sebastianvz-portfolio.git
+    cd sebastianvz-portfolio
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2.  **Instalar dependencias**:
+    ```bash
+    npm install
+    ```
 
-## Deploy on Vercel
+3.  **Configurar variables de entorno**:
+    Crea un archivo `.env.local` en la raíz del proyecto y añade tu ID de Formspree:
+    ```env
+    NEXT_PUBLIC_FORMSPREE_ID=tu_id_aqui
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4.  **Correr el servidor de desarrollo**:
+    ```bash
+    npm run dev
+    ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+5.  Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
+
+## - Despliegue
+
+Este proyecto está optimizado para ser desplegado en [Vercel](https://vercel.com/).
+
+1.  Importa tu repositorio en Vercel.
+2.  En la configuración del proyecto, ve a **Environment Variables**.
+3.  Añade la variable `NEXT_PUBLIC_FORMSPREE_ID` con tu ID de Formspree.
+4.  Haz clic en **Deploy**.
+
+## - Licencia
+
+Este proyecto está bajo la Licencia MIT. Siéntete libre de usarlo como inspiración.
+
+---
+
+Hecho por [Sebastián Vázquez](https://github.com/itsebasvz)
