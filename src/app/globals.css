@@ -34,6 +34,11 @@ body {
   outline-offset: 2px;
 }
 
+/* Disable focus outline for command menu input */
+[cmdk-input]:focus-visible {
+  outline: none;
+}
+
 /* Selection color */
 ::selection {
   background-color: #6366f1;
@@ -68,28 +73,31 @@ body {
     mask-size: 350vmax;
   }
 }
+
 @keyframes marquee {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(calc(-100% - var(--gap)));
-    }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
 }
 
 @keyframes marquee-vertical {
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(calc(-100% - var(--gap)));
-    }
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+  }
 }
 
 .animate-marquee {
-    animation: marquee var(--duration) linear infinite;
+  animation: marquee var(--duration) linear infinite;
 }
 
 .animate-marquee-vertical {
-    animation: marquee-vertical var(--duration) linear infinite;
+  animation: marquee-vertical var(--duration) linear infinite;
 }

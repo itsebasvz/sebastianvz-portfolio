@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Command as CommandIcon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
@@ -15,6 +15,12 @@ export function Header() {
     const pathname = usePathname();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const { t } = useLocale();
+
+    const [isMac, setIsMac] = useState(false);
+
+    useEffect(() => {
+        setIsMac(navigator.platform.toUpperCase().indexOf('MAC') >= 0);
+    }, []);
 
     const navLinks = [
         { href: "/", label: t.nav.home },
@@ -58,6 +64,24 @@ export function Header() {
                     <div className="flex items-center gap-2">
                         <LocaleToggle />
                         <ThemeToggle />
+                        <div className="relative hidden md:block">
+                            <button
+                                onClick={() => document.dispatchEvent(new Event("open-command-menu"))}
+                                className="p-2 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900 transition-colors duration-200 group"
+                                aria-label="Open Command Menu"
+                            >
+                                <CommandIcon className="w-5 h-5" />
+                                <span className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-2 py-1 text-xs font-medium text-white bg-slate-900 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none flex items-center gap-0.5">
+                                    {isMac ? (
+                                        <>
+                                            <CommandIcon className="w-3 h-3" />K
+                                        </>
+                                    ) : (
+                                        <span>Ctrl K</span>
+                                    )}
+                                </span>
+                            </button>
+                        </div>
                         <button
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                             className={cn(

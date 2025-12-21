@@ -3,8 +3,10 @@
 import { useEffect, useState, useCallback, useRef } from "react";
 import { Moon, Sun } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLocale } from "@/components/providers/locale-provider";
 
 export function ThemeToggle() {
+    const { locale } = useLocale();
     const [mounted, setMounted] = useState(false);
     const [theme, setTheme] = useState<"light" | "dark">("dark");
     const initializedRef = useRef(false);
@@ -62,7 +64,7 @@ export function ThemeToggle() {
             type="button"
             onClick={toggleTheme}
             className={cn(
-                "p-2 rounded-lg transition-colors duration-200",
+                "p-2 rounded-lg transition-colors duration-200 group relative",
                 "bg-slate-100 hover:bg-slate-200",
                 "dark:bg-slate-800 dark:hover:bg-slate-700",
                 "focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2",
@@ -75,6 +77,9 @@ export function ThemeToggle() {
             ) : (
                 <Moon className="w-5 h-5 text-slate-700" />
             )}
+            <span className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-2 py-1 text-xs font-medium text-white bg-slate-900 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                {locale === "en" ? "Switch theme" : "Cambiar tema"}
+            </span>
         </button>
     );
 }

@@ -10,7 +10,7 @@ export function LocaleToggle() {
         <button
             onClick={toggleLocale}
             className={cn(
-                "p-2 rounded-lg text-sm font-medium transition-colors",
+                "p-2 rounded-lg text-sm font-medium transition-colors group relative",
                 "bg-slate-100 hover:bg-slate-200",
                 "dark:bg-slate-800 dark:hover:bg-slate-700",
                 "text-slate-700 dark:text-slate-300",
@@ -20,6 +20,9 @@ export function LocaleToggle() {
             aria-label={`Switch to ${locale === "en" ? "Spanish" : "English"}`}
         >
             {locale === "en" ? "ES" : "EN"}
+            <span className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-2 py-1 text-xs font-medium text-white bg-slate-900 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                {locale === "en" ? "Español" : "English"}
+            </span>
         </button>
     );
 }

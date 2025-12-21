@@ -6,18 +6,21 @@ import { FadeIn } from "@/components/motion/fade-in";
 import { Marquee } from "@/components/motion/marquee";
 import { useLocale } from "@/components/providers/locale-provider";
 import { siteConfig, skillCategories } from "@/lib/data";
+import { TextBlur } from "@/components/ui/text-blur";
 
 export default function AboutPage() {
-    const { t } = useLocale();
+    const { t, locale } = useLocale();
 
     return (
         <section className="py-20">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <FadeIn>
-                    <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4">
-                        {t.about.title}
-                    </h1>
+                    <TextBlur trigger={locale}>
+                        <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+                            {t.about.title}
+                        </h1>
+                    </TextBlur>
                     <div className="w-20 h-1 bg-indigo-600 dark:bg-indigo-400 rounded-full mb-8" />
                 </FadeIn>
 
@@ -38,32 +41,40 @@ export default function AboutPage() {
                                     />
                                 </div>
                                 <div>
-                                    <h2 className="text-xl sm:text-2xl font-semibold text-slate-900 dark:text-white">
-                                        {siteConfig.name}
-                                    </h2>
-                                    <p className="text-indigo-600 dark:text-indigo-400 font-medium">
-                                        {siteConfig.faculty} - UNAM
-                                    </p>
+                                    <TextBlur trigger={locale}>
+                                        <h2 className="text-xl sm:text-2xl font-semibold text-slate-900 dark:text-white">
+                                            {siteConfig.name}
+                                        </h2>
+                                        <p className="text-indigo-600 dark:text-indigo-400 font-medium">
+                                            {siteConfig.faculty} - UNAM
+                                        </p>
+                                    </TextBlur>
                                 </div>
                             </div>
                         </FadeIn>
 
                         <FadeIn delay={0.15}>
-                            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-                                {t.about.bio.paragraph1}
-                            </p>
+                            <TextBlur trigger={locale}>
+                                <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-prose text-pretty">
+                                    {t.about.bio.paragraph1}
+                                </p>
+                            </TextBlur>
                         </FadeIn>
 
                         <FadeIn delay={0.2}>
-                            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-                                {t.about.bio.paragraph2}
-                            </p>
+                            <TextBlur trigger={locale}>
+                                <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-prose text-pretty">
+                                    {t.about.bio.paragraph2}
+                                </p>
+                            </TextBlur>
                         </FadeIn>
 
                         <FadeIn delay={0.3}>
-                            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-                                {t.about.bio.paragraph3}
-                            </p>
+                            <TextBlur trigger={locale}>
+                                <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-prose text-pretty">
+                                    {t.about.bio.paragraph3}
+                                </p>
+                            </TextBlur>
                         </FadeIn>
 
                         {/* Info Cards */}
@@ -74,15 +85,17 @@ export default function AboutPage() {
                                         <GraduationCap className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                                     </div>
                                     <div>
-                                        <h3 className="font-medium text-slate-900 dark:text-white">
-                                            {t.about.education}
-                                        </h3>
-                                        <p className="text-sm text-slate-600 dark:text-slate-400">
-                                            {t.about.degree}
-                                        </p>
-                                        <p className="text-sm text-slate-500 dark:text-slate-500">
-                                            {siteConfig.faculty} - UNAM
-                                        </p>
+                                        <TextBlur trigger={locale}>
+                                            <h3 className="font-medium text-slate-900 dark:text-white">
+                                                {t.about.education}
+                                            </h3>
+                                            <p className="text-sm text-slate-600 dark:text-slate-400">
+                                                {t.about.degree}
+                                            </p>
+                                            <p className="text-sm text-slate-500 dark:text-slate-500">
+                                                {siteConfig.faculty} - UNAM
+                                            </p>
+                                        </TextBlur>
                                     </div>
                                 </div>
 
@@ -91,12 +104,14 @@ export default function AboutPage() {
                                         <MapPin className="w-5 h-5 text-violet-600 dark:text-violet-400" />
                                     </div>
                                     <div>
-                                        <h3 className="font-medium text-slate-900 dark:text-white">
-                                            {t.about.location}
-                                        </h3>
-                                        <p className="text-sm text-slate-600 dark:text-slate-400">
-                                            {t.about.city}
-                                        </p>
+                                        <TextBlur trigger={locale}>
+                                            <h3 className="font-medium text-slate-900 dark:text-white">
+                                                {t.about.location}
+                                            </h3>
+                                            <p className="text-sm text-slate-600 dark:text-slate-400">
+                                                {t.about.city}
+                                            </p>
+                                        </TextBlur>
                                     </div>
                                 </div>
                             </div>
@@ -111,9 +126,11 @@ export default function AboutPage() {
                     <FadeIn delay={0.5}>
                         <div className="flex items-center justify-center gap-2 mb-8">
                             <Code className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
-                            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-                                {t.about.technologies}
-                            </h2>
+                            <TextBlur trigger={locale}>
+                                <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+                                    {t.about.technologies}
+                                </h2>
+                            </TextBlur>
                         </div>
                     </FadeIn>
 

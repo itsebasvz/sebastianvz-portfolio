@@ -49,7 +49,7 @@ export const translations = {
         projects: {
             title: "Projects",
             subtitle:
-                "A selection of projects that demonstrate my experience and skills in different areas of development.",
+                "Turning ideas into reality. If you can imagine it, you can program it.",
             featured: "Featured",
             code: "Code",
             demo: "Demo",
@@ -93,7 +93,23 @@ export const translations = {
 
         // Footer
         footer: {
-            rights: "All rights reserved.",
+            designedBy: "Designed & built by me.",
+            viewSource: "View source on GitHub",
+        },
+
+        // Command Menu
+        commandMenu: {
+            placeholder: "Type a command or search...",
+            noResults: "No results found.",
+            navigation: "Navigation",
+            social: "Social",
+            general: "General",
+            copyEmail: "Copy Email",
+            actions: {
+                select: "Select",
+                navigate: "Navigate",
+                close: "Close",
+            },
         },
     },
 
@@ -145,7 +161,7 @@ export const translations = {
         projects: {
             title: "Proyectos",
             subtitle:
-                "Una selección de proyectos que demuestran mi experiencia y habilidades en diferentes áreas del desarrollo.",
+                "Convirtiendo ideas en realidad. Si lo puedes imaginar, lo puedes programar.",
             featured: "Destacado",
             code: "Código",
             demo: "Demo",
@@ -189,7 +205,23 @@ export const translations = {
 
         // Footer
         footer: {
-            rights: "Todos los derechos reservados.",
+            designedBy: "Diseñado y construido por mí.",
+            viewSource: "Ver código en GitHub",
+        },
+
+        // Command Menu
+        commandMenu: {
+            placeholder: "Escribe un comando o busca...",
+            noResults: "No se encontraron resultados.",
+            navigation: "Navegación",
+            social: "Social",
+            general: "General",
+            copyEmail: "Copiar Email",
+            actions: {
+                select: "Seleccionar",
+                navigate: "Navegar",
+                close: "Cerrar",
+            },
         },
     },
 };

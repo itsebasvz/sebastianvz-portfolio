@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { LocaleProvider } from "@/components/providers/locale-provider";
+import { CommandMenu } from "@/components/ui/command-menu";
 import { siteConfig } from "@/lib/data";
 import "./globals.css";
 
@@ -59,6 +60,7 @@ export default function RootLayout({
             <Header />
             <main className="flex-1 pt-16">{children}</main>
             <Footer />
+            <CommandMenu />
           </div>
         </LocaleProvider>
       </body>

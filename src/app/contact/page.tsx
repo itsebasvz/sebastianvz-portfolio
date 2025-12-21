@@ -6,9 +6,10 @@ import { Mail, Github, Linkedin, Send, Loader2, CheckCircle, AlertCircle } from 
 import { FadeIn } from "@/components/motion/fade-in";
 import { useLocale } from "@/components/providers/locale-provider";
 import { siteConfig } from "@/lib/data";
+import { TextBlur } from "@/components/ui/text-blur";
 
 export default function ContactPage() {
-    const { t } = useLocale();
+    const { t, locale } = useLocale();
     const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
     const contactMethods = [
@@ -67,39 +68,49 @@ export default function ContactPage() {
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <FadeIn>
-                    <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4">
-                        {t.contact.title}
-                    </h1>
+                    <TextBlur trigger={locale}>
+                        <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+                            {t.contact.title}
+                        </h1>
+                    </TextBlur>
                     <div className="w-20 h-1 bg-indigo-600 dark:bg-indigo-400 rounded-full mb-4" />
-                    <p className="text-lg text-slate-600 dark:text-slate-400 mb-12 max-w-2xl">
-                        {t.contact.subtitle}
-                    </p>
+                    <TextBlur trigger={locale}>
+                        <p className="text-lg text-slate-600 dark:text-slate-400 mb-12 max-w-2xl">
+                            {t.contact.subtitle}
+                        </p>
+                    </TextBlur>
                 </FadeIn>
 
                 <div className="grid lg:grid-cols-2 gap-12">
                     {/* Contact Form */}
                     <FadeIn delay={0.1}>
                         <div className="p-6 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-                            <h2 className="text-xl font-semibold text-slate-900 dark:text-white mb-6">
-                                {t.contact.sendMessage}
-                            </h2>
+                            <TextBlur trigger={locale}>
+                                <h2 className="text-xl font-semibold text-slate-900 dark:text-white mb-6">
+                                    {t.contact.sendMessage}
+                                </h2>
+                            </TextBlur>
 
                             {status === "success" ? (
                                 <div className="flex flex-col items-center justify-center py-12 text-center animate-in fade-in zoom-in duration-300">
                                     <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mb-4">
                                         <CheckCircle className="w-8 h-8 text-green-600 dark:text-green-400" />
                                     </div>
-                                    <h3 className="text-lg font-medium text-slate-900 dark:text-white mb-2">
-                                        {t.contact.successTitle}
-                                    </h3>
-                                    <p className="text-slate-600 dark:text-slate-400 mb-6">
-                                        {t.contact.successMessage}
-                                    </p>
+                                    <TextBlur trigger={locale}>
+                                        <h3 className="text-lg font-medium text-slate-900 dark:text-white mb-2">
+                                            {t.contact.successTitle}
+                                        </h3>
+                                        <p className="text-slate-600 dark:text-slate-400 mb-6">
+                                            {t.contact.successMessage}
+                                        </p>
+                                    </TextBlur>
                                     <button
                                         onClick={() => setStatus("idle")}
                                         className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 font-medium transition-colors"
                                     >
-                                        {t.contact.sendAnother}
+                                        <TextBlur trigger={locale}>
+                                            {t.contact.sendAnother}
+                                        </TextBlur>
                                     </button>
                                 </div>
                             ) : (
@@ -109,17 +120,21 @@ export default function ContactPage() {
                                             htmlFor="name"
                                             className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
                                         >
-                                            {t.contact.name}
+                                            <TextBlur trigger={locale}>
+                                                {t.contact.name}
+                                            </TextBlur>
                                         </label>
-                                        <input
-                                            type="text"
-                                            id="name"
-                                            name="name"
-                                            required
-                                            disabled={status === "submitting"}
-                                            className="w-full px-4 py-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                                            placeholder={t.contact.namePlaceholder}
-                                        />
+                                        <TextBlur trigger={locale} className="w-full">
+                                            <input
+                                                type="text"
+                                                id="name"
+                                                name="name"
+                                                required
+                                                disabled={status === "submitting"}
+                                                className="w-full px-4 py-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                                placeholder={t.contact.namePlaceholder}
+                                            />
+                                        </TextBlur>
                                     </div>
 
                                     <div>
@@ -127,17 +142,21 @@ export default function ContactPage() {
                                             htmlFor="email"
                                             className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
                                         >
-                                            {t.contact.email}
+                                            <TextBlur trigger={locale}>
+                                                {t.contact.email}
+                                            </TextBlur>
                                         </label>
-                                        <input
-                                            type="email"
-                                            id="email"
-                                            name="email"
-                                            required
-                                            disabled={status === "submitting"}
-                                            className="w-full px-4 py-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                                            placeholder={t.contact.emailPlaceholder}
-                                        />
+                                        <TextBlur trigger={locale} className="w-full">
+                                            <input
+                                                type="email"
+                                                id="email"
+                                                name="email"
+                                                required
+                                                disabled={status === "submitting"}
+                                                className="w-full px-4 py-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                                placeholder={t.contact.emailPlaceholder}
+                                            />
+                                        </TextBlur>
                                     </div>
 
                                     <div>
@@ -145,23 +164,29 @@ export default function ContactPage() {
                                             htmlFor="message"
                                             className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
                                         >
-                                            {t.contact.message}
+                                            <TextBlur trigger={locale}>
+                                                {t.contact.message}
+                                            </TextBlur>
                                         </label>
-                                        <textarea
-                                            id="message"
-                                            name="message"
-                                            rows={5}
-                                            required
-                                            disabled={status === "submitting"}
-                                            className="w-full px-4 py-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors resize-none disabled:opacity-50 disabled:cursor-not-allowed"
-                                            placeholder={t.contact.messagePlaceholder}
-                                        />
+                                        <TextBlur trigger={locale} className="w-full">
+                                            <textarea
+                                                id="message"
+                                                name="message"
+                                                rows={5}
+                                                required
+                                                disabled={status === "submitting"}
+                                                className="w-full px-4 py-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                                                placeholder={t.contact.messagePlaceholder}
+                                            />
+                                        </TextBlur>
                                     </div>
 
                                     {status === "error" && (
                                         <div className="p-3 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 flex items-center gap-2 text-red-600 dark:text-red-400 text-sm animate-in fade-in slide-in-from-top-2">
                                             <AlertCircle className="w-4 h-4 shrink-0" />
-                                            <p>{t.contact.errorMessage}</p>
+                                            <TextBlur trigger={locale}>
+                                                <p>{t.contact.errorMessage}</p>
+                                            </TextBlur>
                                         </div>
                                     )}
 
@@ -176,10 +201,10 @@ export default function ContactPage() {
                                                 Enviando...
                                             </>
                                         ) : (
-                                            <>
+                                            <TextBlur trigger={locale} className="flex items-center gap-2">
                                                 <Send className="w-4 h-4" />
                                                 {t.contact.submit}
-                                            </>
+                                            </TextBlur>
                                         )}
                                     </button>
                                 </form>
@@ -190,9 +215,11 @@ export default function ContactPage() {
                     {/* Contact Methods */}
                     <div className="space-y-6">
                         <FadeIn delay={0.2}>
-                            <h2 className="text-xl font-semibold text-slate-900 dark:text-white mb-6">
-                                {t.contact.otherWays}
-                            </h2>
+                            <TextBlur trigger={locale}>
+                                <h2 className="text-xl font-semibold text-slate-900 dark:text-white mb-6">
+                                    {t.contact.otherWays}
+                                </h2>
+                            </TextBlur>
                         </FadeIn>
 
                         {contactMethods.map((method, index) => (
@@ -211,15 +238,17 @@ export default function ContactPage() {
                                         <method.icon className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                                     </div>
                                     <div>
-                                        <h3 className="font-medium text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-                                            {method.label}
-                                        </h3>
-                                        <p className="text-sm text-indigo-600 dark:text-indigo-400">
-                                            {method.value}
-                                        </p>
-                                        <p className="text-sm text-slate-500 dark:text-slate-500 mt-1">
-                                            {method.description}
-                                        </p>
+                                        <TextBlur trigger={locale}>
+                                            <h3 className="font-medium text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                                                {method.label}
+                                            </h3>
+                                            <p className="text-sm text-indigo-600 dark:text-indigo-400">
+                                                {method.value}
+                                            </p>
+                                            <p className="text-sm text-slate-500 dark:text-slate-500 mt-1">
+                                                {method.description}
+                                            </p>
+                                        </TextBlur>
                                     </div>
                                 </Link>
                             </FadeIn>
