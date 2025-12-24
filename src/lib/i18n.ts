@@ -111,6 +111,26 @@ export const translations = {
                 close: "Close",
             },
         },
+
+        // Chat
+        chat: {
+            title: "Sebs AI",
+            poweredBy: "Powered by GPT-4o-mini",
+            greeting: "Hi! I'm Sebs' AI.",
+            greetingSubtext: "Ask me about his projects, experience, or how to contact him.",
+            inputPlaceholder: "Type a message...",
+            suggestions: {
+                whoIs: "Who is Sebastián?",
+                projects: "Tell me about his projects",
+                technologies: "What technologies does he use?",
+                contact: "How can I contact him?",
+            },
+            error: "Sorry, something went wrong. Please try again.",
+            popover: {
+                title: "Have questions?",
+                description: "Ask my AI assistant about my experience or projects.",
+            },
+        },
     },
 
     es: {
@@ -221,6 +241,26 @@ export const translations = {
                 select: "Seleccionar",
                 navigate: "Navegar",
                 close: "Cerrar",
+            },
+        },
+
+        // Chat
+        chat: {
+            title: "Sebs IA",
+            poweredBy: "Impulsado por GPT-4o-mini",
+            greeting: "¡Hola! Soy la IA de Sebs.",
+            greetingSubtext: "Pregúntame sobre sus proyectos, experiencia o cómo contactarlo.",
+            inputPlaceholder: "Escribe un mensaje...",
+            suggestions: {
+                whoIs: "¿Quién es Sebastián?",
+                projects: "Cuéntame de sus proyectos",
+                technologies: "¿Qué tecnologías usa?",
+                contact: "¿Cómo lo contacto?",
+            },
+            error: "Lo siento, algo salió mal. Por favor intenta de nuevo.",
+            popover: {
+                title: "¿Tienes preguntas?",
+                description: "Pregúntale a mi asistente IA sobre mi experiencia o proyectos.",
             },
         },
     },
