@@ -4,6 +4,8 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { LocaleProvider } from "@/components/providers/locale-provider";
 import { CommandMenu } from "@/components/ui/command-menu";
+import { ChatFAB } from "@/components/chat/chat-fab";
+import { ChatModal } from "@/components/chat/chat-modal";
 import { siteConfig } from "@/lib/data";
 import "./globals.css";
 
@@ -61,6 +63,8 @@ export default function RootLayout({
             <main className="flex-1 pt-16">{children}</main>
             <Footer />
             <CommandMenu />
+            <ChatFAB />
+            <ChatModal />
           </div>
         </LocaleProvider>
       </body>

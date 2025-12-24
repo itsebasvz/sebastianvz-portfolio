@@ -22,9 +22,11 @@ import {
     Moon,
     Sun,
     Check,
+    Sparkles,
 } from "lucide-react";
 import { siteConfig } from "@/lib/data";
 import { useLocale } from "@/components/providers/locale-provider";
+import { useChatStore } from "@/lib/store/chat-store";
 
 export function CommandMenu() {
     const [open, setOpen] = React.useState(false);
@@ -134,6 +136,16 @@ export function CommandMenu() {
                                     >
                                         <Linkedin className="h-4 w-4" />
                                         <span>LinkedIn</span>
+                                    </Command.Item>
+                                </Command.Group>
+
+                                <Command.Group heading="AI Assistant" className="px-2 py-0 text-xs font-medium text-foreground/40 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:pb-2 [&_[cmdk-group-heading]]:pt-4">
+                                    <Command.Item
+                                        onSelect={() => runCommand(() => useChatStore.getState().setIsOpen(true))}
+                                        className="flex cursor-pointer items-center gap-2 rounded-lg px-2 py-2 text-sm text-foreground/80 transition-colors hover:bg-foreground/10 aria-selected:bg-foreground/10 aria-selected:text-foreground"
+                                    >
+                                        <Sparkles className="h-4 w-4 text-indigo-500" />
+                                        <span>Ask AI...</span>
                                     </Command.Item>
                                 </Command.Group>
 
